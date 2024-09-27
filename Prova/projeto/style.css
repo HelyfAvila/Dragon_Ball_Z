@@ -1,0 +1,146 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #deecf2;
+}
+
+#app {
+    display: block; /* Para permitir que os personagens fiquem um abaixo do outro */
+    justify-content: center; /* Centraliza os personagens horizontalmente */
+    align-items: flex-start; /* Alinha os personagens no início verticalmente */
+    gap: 20px; /* Espaço entre os personagens */
+    margin: auto;
+}
+
+.character {
+    background-color: whitesmoke;
+    border: 2px solid #1d509f;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px; /* Padding geral */
+    width: 100%; /* Garantindo que ocupe a largura do container */
+    max-width: 300px; /* Largura máxima para o personagem */
+}
+
+.life-bar {
+    height: 30px;
+    min-height: 30px; /* Altura mínima da barra de vida */
+    background-color: #9ce39e;
+    color: #32450a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Distância da barra de vida para os outros elementos */
+    width: 100%; /* Ocupa toda a largura do quadrado */
+}
+
+.sprite {
+    height: 80px; /* Aumenta a altura da sprite */
+    width: 120px; /* Aumenta a largura da sprite */
+    margin-bottom: 10px; /* Distância entre sprite e nome */
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sprite img {
+    max-height: 100%; /* Ocupa toda a altura */
+    max-width: 100%; /* Ocupa toda a largura */
+    object-fit: cover; /* Cobre a área disponível */
+    border-radius: 5px;
+}
+
+.character h1 {
+    margin-top: 10px; /* Espaço acima do nome */
+    margin-bottom: 10px; /* Distância abaixo do nome */
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 10px; /* Distância entre ações e o nome do personagem */
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d509f;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #1a355e;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.vs {
+    font-size: 24px; /* Tamanho da fonte para o VS */
+    font-weight: bold; /* Negrito */
+    color: #1d509f; /* Cor do texto */
+    align-self: center; /* Centraliza verticalmente em relação aos personagens */
+    margin: 0 10px; /* Espaçamento lateral */
+    align-items: center;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .character {
+        max-width: 90%; /* Ajusta a largura máxima em telas menores */
+        flex: 1 1 45%; /* Permite que os personagens ocupem até 45% da largura do contêiner */
+    }
+}
+
+@media (max-width: 480px) {
+    .character {
+        max-width: 100%; /* Ajusta a largura máxima em telas ainda menores */
+        flex: 1 1 100%; /* Permite que os personagens ocupem 100% da largura do contêiner */
+    }
+
+    .sprite {
+        height: 60px; /* Reduz a altura da sprite para telas menores */
+        width: auto; /* Mantém a proporção da imagem */
+    }
+
+    .actions {
+        grid-template-columns: 1fr; /* Coloca os botões em uma única coluna */
+    }
+}
+
+.attack-history {
+    margin-top: 40px; /* Aumenta o espaço acima do histórico para separá-lo dos personagens */
+    width: 100%; /* Largura do histórico */
+    max-width: 600px; /* Largura máxima */
+    background-color: #f9f9f9; /* Cor de fundo */
+    border: 1px solid #ccc; /* Borda do histórico */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px; /* Padding interno */
+}
+
+.attack-history h2 {
+    margin: 0 0 10px; /* Margens do título */
+}
+
+.attack-history ul {
+    list-style-type: none; /* Remove as bolinhas da lista */
+    padding: 0; /* Remove o padding */
+    margin: 0; /* Remove a margem */
+}
+
+.attack-history li {
+    margin: 5px 0; /* Margem entre os itens do histórico */
+}

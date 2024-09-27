@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova - Jogo Herói vs Vilão</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <div class="character">
+        <div class="life-bar">{{ hero.life }}</div>
+        <div class="sprite">
+            <img :src="hero.sprite" alt="Heroi">
+        </div>
+        <h1>{{ hero.name }}</h1>
+        <div class="actions">
+            <button @click="attack(true)">Atacar</button>
+            <button @click="defense(true)">Defender</button>
+            <button @click="usePotion(true)">Usar Poção</button>
+            <button @click="flee(true)">Correr</button>
+        </div>
+    </div>
+
+    <div class="vs">VS</div>
+
+    <div class="character">
+        <div class="life-bar">{{ villain.life }}</div>
+        <div class="sprite">
+            <img :src="villain.sprite" alt="Vilao">
+        </div>
+        <h1>{{ villain.name }}</h1>
+    </div>
+
+    <div class="attack-history">
+        <h2>Histórico de Ataques:</h2>
+        <ul>
+            <li v-for="entry in attackHistory" :key="entry">{{ entry }}</li>
+        </ul>
+    </div>
+    <audio id="attackSound" src="assets/som_luta.m4a"></audio>
+    <audio id="backgroundMusic" src="assets/videoplayback.m4a" loop></audio>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
